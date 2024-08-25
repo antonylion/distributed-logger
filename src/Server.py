@@ -1,11 +1,9 @@
 from threading import Thread
-import threading
 from time import sleep
 import logging
 import random
 import datetime
 from .Aggregator import Aggregator
-import ctypes
 
 class Server(Thread):
     
@@ -18,7 +16,7 @@ class Server(Thread):
         self.running = True
         logging.basicConfig(format=self.format, level=logging.INFO, datefmt="%H:%M:%S")
     
-    def pickSeverityMessage(probability):
+    def pickSeverityMessage(self, probability):
         if probability < 0.2:
             return "ERROR", "An error has occured"
         elif probability >= 0.2 and probability < 0.6:

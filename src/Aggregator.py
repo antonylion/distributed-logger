@@ -1,5 +1,4 @@
 from threading import Lock
-import datetime
 
 class Aggregator():
     logsByTimestamp = {}
@@ -45,3 +44,16 @@ class Aggregator():
                 if subcontent in log["message"]:
                     output.append(log)
         print(output)
+    
+    def getLogs(self):
+        return self.logs
+    
+    def getBetween(self, timestamps):
+        timestamp1 = timestamps[0]
+        timestamp2 = timestamps[1]
+        output = []
+        for k in self.logsByTimestamp:
+            if k >= timestamp1 and k <= timestamp2:
+                output.append(self.logsByTimestamp[k])
+        
+        return output

@@ -1,0 +1,14 @@
+[project]
+name = "distributed-looger"
+version = "1.0.0"
+description = "Distributed logger for practicing python software engineering"
+requires-python = ">=3.10"
+authors = [
+  {name = "Antony Zappacosta", email = "antony.zappacosta@studio.unibo.it"},
+]
+dependencies = [
+  "pytest"
+]
+
+[tool.setuptools]
+packages = ["src"]
