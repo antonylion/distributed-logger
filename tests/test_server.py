@@ -1,6 +1,7 @@
 from src.Server import Server
 from src.Aggregator import Aggregator
 import pytest
+import time
 
 @pytest.fixture(scope="class")
 def setup():
@@ -13,6 +14,18 @@ class TestServer:
 
     def test_always_passes(self):
         assert True
+    
+    def test_server_run(self):
+        #server = setup
+        agg = Aggregator()
+        server = Server("test-server", 5, agg)
+        server.start()  # Start the server thread
+        time.sleep(2)  # Let it run for a short period
+        server.stopServer()  # Stop the server after a while
+        server.join()  # Ensure the thread has finished
+        
+        # You could add assertions here to check if logs were produced, etc.
+        assert not server.isWorking()
     
     def test_error_log_occurance(self, setup):
         server = setup

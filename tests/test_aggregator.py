@@ -1,4 +1,3 @@
-from src.Server import Server
 from src.Aggregator import Aggregator
 import datetime
 

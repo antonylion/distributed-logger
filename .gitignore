@@ -4,3 +4,5 @@ tests/.pytest_cache/*
 dist/*
 distributed_looger.egg-info/*
 src/distributed_looger.egg-info/*
+.coverage
+.vscode/*

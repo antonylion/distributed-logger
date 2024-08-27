@@ -38,7 +38,7 @@ class Server(Thread):
             nextWait = int(random.random()*10) + 1
             sleep(nextWait)
             p = random.random()
-            severity, message = Server.pickSeverityMessage(p)
+            severity, message = self.pickSeverityMessage(p)
             timestamp = datetime.datetime.utcnow()#.strftime("%Y-%m-%dT%H:%M:%SZ")
             serviceName = self.name
             log = {
