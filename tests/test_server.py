@@ -32,6 +32,16 @@ class TestServer:
         severity, _ = server.pickSeverityMessage(0.15)
         assert severity == "ERROR"
     
+    def test_info_log_occurance(self, setup):
+        server = setup
+        severity, _ = server.pickSeverityMessage(0.8)
+        assert severity == "INFO"
+    
+    def test_warn_log_occurance(self, setup):
+        server = setup
+        severity, _ = server.pickSeverityMessage(0.4)
+        assert severity == "WARN"
+    
     def test_running_server(self, setup):
         server = setup
         assert server.isWorking() == True
